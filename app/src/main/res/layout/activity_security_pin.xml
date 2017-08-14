@@ -28,7 +28,8 @@
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="*"
+                android:text="@string/asterisk"
+                android:textColor="@color/colorAccent"
                 android:textSize="48sp" />
 
             <TextView
@@ -38,7 +39,8 @@
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="*"
+                android:text="@string/asterisk"
+                android:textColor="@color/colorAccent"
                 android:textSize="48sp" />
 
             <TextView
@@ -48,7 +50,8 @@
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="*"
+                android:text="@string/asterisk"
+                android:textColor="@color/colorAccent"
                 android:textSize="48sp" />
 
             <TextView
@@ -58,7 +61,8 @@
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="*"
+                android:text="@string/asterisk"
+                android:textColor="@color/colorAccent"
                 android:textSize="48sp" />
 
         </TableRow>
@@ -89,7 +93,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="1"
+                android:text="@string/digit_1"
                 android:textSize="48sp" />
 
             <TextView
@@ -99,7 +103,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="2"
+                android:text="@string/digit_2"
                 android:textSize="48sp" />
 
             <TextView
@@ -109,7 +113,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="3"
+                android:text="@string/digit_3"
                 android:textSize="48sp" />
 
         </TableRow>
@@ -127,7 +131,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="4"
+                android:text="@string/digit_4"
                 android:textSize="48sp" />
 
             <TextView
@@ -137,7 +141,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="5"
+                android:text="@string/digit_5"
                 android:textSize="48sp" />
 
             <TextView
@@ -147,7 +151,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="6"
+                android:text="@string/digit_6"
                 android:textSize="48sp" />
 
         </TableRow>
@@ -166,8 +170,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="7"
-                android:textColor="@color/colorAccent"
+                android:text="@string/digit_7"
                 android:textSize="48sp" />
 
             <TextView
@@ -177,8 +180,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="8"
-                android:textColor="@color/colorAccent"
+                android:text="@string/digit_8"
                 android:textSize="48sp" />
 
             <TextView
@@ -188,8 +190,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="9"
-                android:textColor="@color/colorAccent"
+                android:text="@string/digit_9"
                 android:textSize="48sp" />
 
         </TableRow>
@@ -208,7 +209,7 @@
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="clear"
+                android:text="@string/clear"
                 android:textColor="@color/colorAccent"
                 android:textSize="38sp" />
 
@@ -219,8 +220,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="0"
-                android:textColor="@color/colorAccent"
+                android:text="@string/digit_0"
                 android:textSize="48sp" />
 
             <TextView
@@ -230,7 +230,7 @@
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
                 android:layout_margin="10dp"
-                android:text="ok"
+                android:text="@string/ok"
                 android:textColor="@color/colorAccent"
                 android:textSize="48sp" />
 
