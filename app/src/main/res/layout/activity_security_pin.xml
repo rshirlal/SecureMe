@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.poorah.secureme.activity.SecurityPIN">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:text="@string/secureme_pin"
+        android:textColor="@android:color/white"
+        android:textSize="38dp" />
 
     <TableLayout
         android:id="@+id/pinDisplayLayout"
@@ -24,47 +36,38 @@
             <TextView
                 android:id="@+id/pinDisplay1"
                 android:layout_width="0dp"
+                android:layout_margin="15dp"
                 android:layout_weight="1"
+                android:background="@drawable/white_circle_textview"
                 android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
-                android:text="@string/asterisk"
-                android:textColor="@color/colorAccent"
-                android:textSize="48sp" />
+                android:minHeight="24dp" />
 
             <TextView
                 android:id="@+id/pinDisplay2"
                 android:layout_width="0dp"
+                android:layout_margin="15dp"
                 android:layout_weight="1"
+                android:background="@drawable/white_circle_textview"
                 android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
-                android:text="@string/asterisk"
-                android:textColor="@color/colorAccent"
-                android:textSize="48sp" />
+                android:minHeight="24dp" />
 
             <TextView
                 android:id="@+id/pinDisplay3"
                 android:layout_width="0dp"
+                android:layout_margin="15dp"
                 android:layout_weight="1"
+                android:background="@drawable/white_circle_textview"
                 android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
-                android:text="@string/asterisk"
-                android:textColor="@color/colorAccent"
-                android:textSize="48sp" />
+                android:minHeight="24dp" />
 
             <TextView
                 android:id="@+id/pinDisplay4"
                 android:layout_width="0dp"
+                android:layout_margin="15dp"
                 android:layout_weight="1"
+                android:background="@drawable/white_circle_textview"
                 android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
-                android:text="@string/asterisk"
-                android:textColor="@color/colorAccent"
-                android:textSize="48sp" />
-
+                android:minHeight="24dp" />
         </TableRow>
 
 
@@ -89,31 +92,34 @@
             <TextView
                 android:id="@+id/pin1"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_1"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/pin2"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_2"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/pin3"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_3"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
         </TableRow>
@@ -127,31 +133,34 @@
             <TextView
                 android:id="@+id/pin4"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_4"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/pin5"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_5"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/pin6"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_6"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
         </TableRow>
@@ -166,31 +175,34 @@
             <TextView
                 android:id="@+id/pin7"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_7"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/pin8"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_8"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/pin9"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_9"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
         </TableRow>
@@ -205,33 +217,34 @@
             <TextView
                 android:id="@+id/pinDel"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/clear"
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:textSize="38sp" />
 
             <TextView
                 android:id="@+id/pin0"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/digit_0"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/pinOK"
                 android:layout_width="0dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center_horizontal|center_vertical"
-                android:layout_margin="10dp"
                 android:text="@string/ok"
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:textSize="48sp" />
 
         </TableRow>

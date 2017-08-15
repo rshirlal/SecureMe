@@ -2,9 +2,11 @@ package com.poorah.secureme.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -26,10 +28,11 @@ public class SecurityPIN extends AppCompatActivity implements View.OnClickListen
     TextView mPinDisplay1, mPinDisplay2, mPinDisplay3, mPinDisplay4;
     Preferences mPreferences;
     String mPINEntered;
-    public static final String GET_OR_SET_PIN = "get_or_set_pin";
 
-    public static final int SET_PIN = 1;
-    public static final int GET_PIN = 0;
+    public static final String VERIFY_OR_RESET_PIN = "verify_or_reset";
+
+    public static final int VERIFY_PIN = 1;
+    public static final int RESET_PIN = 0;
 
     int mCallType;
     int mResultStatus;
@@ -38,10 +41,10 @@ public class SecurityPIN extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_security_pin);
-        mCallType = GET_PIN;
+        mCallType = VERIFY_PIN;
         Bundle data = getIntent().getExtras();
         if (data != null) {
-            mCallType = data.getInt(GET_OR_SET_PIN, GET_PIN);
+            mCallType = data.getInt(VERIFY_OR_RESET_PIN, VERIFY_PIN);
         }
         mPINEntered = "";
         initializeViews();
@@ -125,11 +128,6 @@ public class SecurityPIN extends AppCompatActivity implements View.OnClickListen
 
     private void removePINArray() {
         mPINEntered = "";
-//        if (mPINEntered.length() > 0) {
-//            StringBuilder builder = new StringBuilder(mPINEntered);
-//            builder.deleteCharAt(mPINEntered.length() - 1);
-//            mPINEntered = builder.toString();
-//        }
         updateDisplayText();
     }
 
@@ -147,10 +145,10 @@ public class SecurityPIN extends AppCompatActivity implements View.OnClickListen
     }
 
     private void updateDisplayText() {
-        mPinDisplay1.setText(mPINEntered.length() >= 1 ? "*" : "");
-        mPinDisplay2.setText(mPINEntered.length() >= 2 ? "*" : "");
-        mPinDisplay3.setText(mPINEntered.length() >= 3 ? "*" : "");
-        mPinDisplay4.setText(mPINEntered.length() >= 4 ? "*" : "");
+        mPinDisplay1.setBackground(ContextCompat.getDrawable(this,mPINEntered.length() >= 1 ? R.drawable.white_circle_textview_filled : R.drawable.white_circle_textview));
+        mPinDisplay2.setBackground(ContextCompat.getDrawable(this,mPINEntered.length() >= 2 ? R.drawable.white_circle_textview_filled : R.drawable.white_circle_textview));
+        mPinDisplay3.setBackground(ContextCompat.getDrawable(this,mPINEntered.length() >= 3 ? R.drawable.white_circle_textview_filled : R.drawable.white_circle_textview));
+        mPinDisplay4.setBackground(ContextCompat.getDrawable(this,mPINEntered.length() >= 4 ? R.drawable.white_circle_textview_filled : R.drawable.white_circle_textview));
 
     }
 
@@ -165,12 +163,12 @@ public class SecurityPIN extends AppCompatActivity implements View.OnClickListen
 
         if (mPINEntered.length() == 4){
             // This means the PIN has been entered
-            if(mCallType == SET_PIN){
+            if(mCallType == RESET_PIN){
                 mPreferences.setPIN(mPINEntered);
                 mResultStatus = RESULT_OK;
                 finish();
                 return;
-            }else if(mCallType == GET_PIN){
+            }else if(mCallType == VERIFY_PIN){
                 // Validate the PIN and if it's all good
                 // finish, else display a message
                 if(mPreferences.getPIN().equalsIgnoreCase(mPINEntered)){
@@ -200,7 +198,7 @@ public class SecurityPIN extends AppCompatActivity implements View.OnClickListen
             }
         });
         builder.cancelable(true);
-        builder.canceledOnTouchOutside(true);
+        builder.canceledOnTouchOutside(false);
         builder.cancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {

@@ -6,16 +6,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.poorah.secureme.activity.MainActivity">
+    tools:context="com.poorah.secureme.activity.MainActivity"
+    android:id="@+id/drawer_layout">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include layout="@layout/nav_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/secret_lists"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
             android:scrollbars="vertical" />
 
         <android.support.design.widget.FloatingActionButton
@@ -31,7 +37,9 @@
     <android.support.design.widget.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:menu="@menu/navigation_menu">
+        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header">
 
     </android.support.design.widget.NavigationView>
 

@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">SecureMe</string>
     <string name="account">Account</string>
+    <string name="accountname">Name</string>
     <string name="change_pin">Change PIN</string>
     <string name="change_master_key">Change Master Key</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="clipboard_label">password</string>
+    <string name="secureme_pin">SecureMe PIN</string>
+    <string name="copied_to_clipboard">Copied To Clipboard</string>
     <string name="digit_0">0</string>
     <string name="digit_1">1</string>
     <string name="digit_2">2</string>
@@ -16,5 +21,7 @@
     <string name="clear">clear</string>
     <string name="ok">ok</string>
     <string name="asterisk">*</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>

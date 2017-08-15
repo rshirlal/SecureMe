@@ -1,9 +1,14 @@
 package com.poorah.secureme.adapter;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -47,7 +52,7 @@ public class SecurityMasterAdapter extends CursorRecyclerViewAdapter<SecurityMas
         viewHolder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showSecret(secret);
+                showSecret(mSecure.decrypt(secret));
             }
         });
 
@@ -99,18 +104,26 @@ public class SecurityMasterAdapter extends CursorRecyclerViewAdapter<SecurityMas
 
     }
 
-    private void showSecret(final String secret){
+    private void showSecret(final String decryptedSecret){
+
         if(mPasswordDialog == null){
             MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(mContext);
             dialogBuilder.positiveText("Close");
+            dialogBuilder.neutralText("Copy");
+            dialogBuilder.onNeutral(new MaterialDialog.SingleButtonCallback() {
+                @Override
+                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                    copyContentToClipboard(decryptedSecret);
+                }
+            });
             dialogBuilder.title("Secret");
             mPasswordDialog = dialogBuilder.build();
             mPasswordDialog.setCanceledOnTouchOutside(true);
+
         }
 
         if(mPasswordDialog.isShowing()) mPasswordDialog.hide();
-        mPasswordDialog.setContent(mSecure.decrypt(secret));
-
+        mPasswordDialog.setContent(decryptedSecret);
 
         ((Activity) mContext).runOnUiThread(new Runnable() {
             @Override
@@ -119,9 +132,16 @@ public class SecurityMasterAdapter extends CursorRecyclerViewAdapter<SecurityMas
             }
         });
 
-
-
     }
+
+    private void copyContentToClipboard(String decryptedSecret){
+        ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clipData = ClipData.newPlainText(mContext.getResources().getString(R.string.clipboard_label),decryptedSecret);
+        clipboard.setPrimaryClip(clipData);
+        Toast.makeText(mContext,mContext.getResources().getString(R.string.copied_to_clipboard),Toast.LENGTH_LONG).show();
+    }
+
+
 
     @Override
     public SecurityMasterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
