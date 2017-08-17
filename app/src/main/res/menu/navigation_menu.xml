@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/nav_account"
-        android:title="@string/account"
-        android:icon="@drawable/ic_account_circle_white"/>
-
     <item android:id="@+id/nav_change_pin"
         android:title="@string/change_pin"
         android:icon="@drawable/ic_fiber_pin_white"/>
@@ -12,4 +8,10 @@
     <item android:id="@+id/nav_change_master"
         android:title="@string/change_master_key"
         android:icon="@drawable/ic_vpn_key_white"/>
+
+    <item android:id="@+id/nav_email"
+        android:title="Email"
+        android:icon="@android:drawable/sym_action_email" />
+
+
 </menu>

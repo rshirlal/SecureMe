@@ -16,62 +16,54 @@
         android:paddingTop="10dp"
         android:text="@string/secureme_pin"
         android:textColor="@android:color/white"
-        android:textSize="38dp" />
+        android:textSize="38dp"
+        android:id="@+id/textView" />
 
-    <TableLayout
+    <LinearLayout
         android:id="@+id/pinDisplayLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tableLayout"
+        android:padding="10dp"
         android:layout_alignParentStart="true"
-        android:layout_margin="20dp"
-        android:stretchColumns="1">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView"
+        android:layout_above="@+id/tableLayout">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:minHeight="40dp"
-            android:padding="10dp">
 
             <TextView
                 android:id="@+id/pinDisplay1"
-                android:layout_width="0dp"
-                android:layout_margin="15dp"
-                android:layout_weight="1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="20dp"
                 android:background="@drawable/white_circle_textview"
-                android:fontFamily="sans-serif-thin"
-                android:minHeight="24dp" />
+                android:fontFamily="sans-serif-thin" />
 
             <TextView
                 android:id="@+id/pinDisplay2"
-                android:layout_width="0dp"
-                android:layout_margin="15dp"
-                android:layout_weight="1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="20dp"
                 android:background="@drawable/white_circle_textview"
-                android:fontFamily="sans-serif-thin"
-                android:minHeight="24dp" />
+                android:fontFamily="sans-serif-thin" />
 
             <TextView
                 android:id="@+id/pinDisplay3"
-                android:layout_width="0dp"
-                android:layout_margin="15dp"
-                android:layout_weight="1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="20dp"
+
                 android:background="@drawable/white_circle_textview"
-                android:fontFamily="sans-serif-thin"
-                android:minHeight="24dp" />
+                android:fontFamily="sans-serif-thin" />
 
             <TextView
                 android:id="@+id/pinDisplay4"
-                android:layout_width="0dp"
-                android:layout_margin="15dp"
-                android:layout_weight="1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="20dp"
                 android:background="@drawable/white_circle_textview"
-                android:fontFamily="sans-serif-thin"
-                android:minHeight="24dp" />
-        </TableRow>
-
-
-    </TableLayout>
+                android:fontFamily="sans-serif-thin" />
+    </LinearLayout>
 
 
     <TableLayout

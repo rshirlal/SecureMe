@@ -11,45 +11,21 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_account_circle_white"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:id="@+id/account_icon"/>
+        android:id="@+id/account_icon"
+        android:layout_above="@+id/nav_accountname" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/account_icon"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
         android:id="@+id/nav_accountname"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/white"
-        android:text="@string/accountname"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nav_accountname"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/nav_account"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
         android:fontFamily="sans-serif-thin"
-        android:text="@string/account"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/logout"
-        android:text="@string/sign_out"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:textColor="@android:color/white"
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="right|center_vertical"/>
+        android:text="@string/accountname"/>
 
 </RelativeLayout>
