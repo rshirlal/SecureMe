@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -28,7 +29,7 @@ import com.poorah.secureme.adapter.SecurityMasterAdapter;
 import com.poorah.secureme.data.SecureMeContract;
 import com.poorah.secureme.dialogs.SecretMaintenance;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements LoaderManager.LoaderCallbacks<Cursor>, NavigationView.OnNavigationItemSelectedListener {
 
 
     RecyclerView mRecyclerView;
@@ -37,9 +38,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar mToolbar;
-
     private static final int PIN_VERIFICATION = 1;
     private static final int PIN_RESET = 2;
+    private static final int MASTERKEY_SET = 3;
+    private static final int MASTERKEY_RESET = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +80,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             }
         });
+        String currentKey = getPreferences().getKey();
+        if(TextUtils.isEmpty(getPreferences().getKey())){
+            // This means the Master Key hasn't been set yet
+            // So next step is to ask the user to enter it
+            setMasterKey();
+        }else{
+            // Always begin with PIN Verification
+            verifyPIN();
+        }
 
-        // Always begin with PIN Verification
-        verifyPIN();
     }
 
 
@@ -90,6 +99,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             if (resultCode != RESULT_OK) {
                 // Uh Oh!! The user didn't enter the correct PIN
                 showInvalidPINMessage();
+            }
+        }else if(requestCode == MASTERKEY_SET){
+            if(resultCode != RESULT_OK){
+                // We can't allow the user to continue
+                // witout a master key
+                finish();
+            }else{
+                verifyPIN();
             }
         }
     }
@@ -151,10 +168,24 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         startActivityForResult(pinCheckerIntent, PIN_VERIFICATION);
     }
 
-    private void resetPIN() {
+    private void changePIN() {
         Intent pinCheckerIntent = new Intent(this, SecurityPIN.class);
         pinCheckerIntent.putExtra(SecurityPIN.VERIFY_OR_RESET_PIN, SecurityPIN.RESET_PIN);  // Verification
         startActivityForResult(pinCheckerIntent, PIN_RESET);
+    }
+
+    private void changeMasterPassword(){
+        Intent changeMasterIntent = new Intent(this,MasterKey.class);
+        changeMasterIntent.putExtra(MasterKey.MASTER_KEY_CALL_TYPE,MasterKey.RESET_MASTERKEY);
+        startActivityForResult(changeMasterIntent, MASTERKEY_RESET);
+    }
+
+    private void emailSecret(){
+        snackBar("Email Secret");
+    }
+
+    private void importSecret(){
+        snackBar("Import Secret");
     }
 
     private void showInvalidPINMessage() {
@@ -191,21 +222,30 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         switch (item.getItemId()) {
 
             case R.id.nav_change_pin:
-                    snackBar("Change PIN");
+                changePIN();
                 break;
             case R.id.nav_change_master:
-                snackBar("Change Master Password");
+                changeMasterPassword();
                 break;
             case R.id.nav_email:
-                snackBar("Email Secret");
+                emailSecret();
+                break;
+            case R.id.nav_import:
+                importSecret();
                 break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void snackBar(String message){
+    private void snackBar(String message) {
         Snackbar.make(mAddNew, message, Snackbar.LENGTH_LONG).show();
+    }
+
+    private void setMasterKey(){
+        Intent masterKeySetIntent = new Intent(this, MasterKey.class);
+        masterKeySetIntent.putExtra(MasterKey.MASTER_KEY_CALL_TYPE, MasterKey.SET_MASTERKEY);  // Verification
+        startActivityForResult(masterKeySetIntent, MASTERKEY_SET);
     }
 
 

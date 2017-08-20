@@ -7,6 +7,11 @@ import android.util.Log;
 
 import com.poorah.secureme.data.Preferences;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
@@ -63,6 +68,40 @@ public class Secure {
             return cipherText;
         }
 
+    }
+
+    public String generateHash(String text){
+        MessageDigest mdSha1 = null;
+        try
+        {
+            mdSha1 = MessageDigest.getInstance("SHA-512");
+        } catch (NoSuchAlgorithmException e1) {
+            Log.e("myapp", "Error initializing SHA1 message digest");
+        }
+        mdSha1.update(text.getBytes());
+
+        byte[] data = mdSha1.digest();
+        try {
+            return convertToHex(data);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private String convertToHex(byte[] data) throws java.io.IOException
+    {
+
+
+        StringBuffer sb = new StringBuffer();
+        String hex=null;
+
+        hex=Base64.encodeToString(data, 0, data.length, Base64.DEFAULT);
+
+        sb.append(hex);
+
+        return sb.toString();
     }
 
 }

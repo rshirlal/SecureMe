@@ -19,9 +19,19 @@
     <string name="digit_8">8</string>
     <string name="digit_9">9</string>
     <string name="clear">clear</string>
+    <string name="cancel">cancel</string>
     <string name="ok">ok</string>
     <string name="asterisk">*</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="email">Email</string>
+    <string name="import_str">Import</string>
+    <string name="title_activity_master_key">MasterKey</string>
+    <string name="title_input_current_master_key">Current Master Key</string>
+    <string name="hint_current_master_key">Enter your current master key</string>
+    <string name="title_new_master_key">New Master Key</string>
+    <string name="hint_new_master_key">Enter you new master key</string>
+    <string name="title_reenter_master_key">Confirm Master Key</string>
+    <string name="hint_reenter_master_key">Confirm your new master key</string>
 
 </resources>

@@ -27,7 +27,7 @@ public class Preferences {
     }
 
     public String getKey(){
-        return mSharedPreferences.getString(CRYPTO_KEY,"secure_me");
+        return mSharedPreferences.getString(CRYPTO_KEY,null);
     }
 
     public void setPIN(String pinNo){

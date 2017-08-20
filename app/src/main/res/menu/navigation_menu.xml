@@ -10,8 +10,11 @@
         android:icon="@drawable/ic_vpn_key_white"/>
 
     <item android:id="@+id/nav_email"
-        android:title="Email"
+        android:title="@string/email"
         android:icon="@android:drawable/sym_action_email" />
 
+    <item android:id="@+id/nav_import"
+        android:title="@string/import_str"
+        android:icon="@android:drawable/stat_sys_upload" />
 
 </menu>
