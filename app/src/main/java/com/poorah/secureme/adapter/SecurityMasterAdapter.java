@@ -38,6 +38,7 @@ public class SecurityMasterAdapter extends CursorRecyclerViewAdapter<SecurityMas
     private TextView mContentView;
     private String mHiddenText;
 
+
     public SecurityMasterAdapter(Context context, Cursor cursor) {
         super(context, cursor);
         mContext = context;
