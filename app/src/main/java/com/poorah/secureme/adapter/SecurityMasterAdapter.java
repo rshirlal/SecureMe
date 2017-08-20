@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +23,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.poorah.secureme.R;
 import com.poorah.secureme.activity.MainActivity;
 import com.poorah.secureme.data.SecureMeContract;
+import com.poorah.secureme.dialogs.SecretMaintenance;
 import com.poorah.secureme.utils.Secure;
 
 /**
@@ -31,11 +35,14 @@ public class SecurityMasterAdapter extends CursorRecyclerViewAdapter<SecurityMas
     private Context mContext;
     private MaterialDialog mPasswordDialog;
     private Secure mSecure;
+    private TextView mContentView;
+    private String mHiddenText;
 
     public SecurityMasterAdapter(Context context, Cursor cursor) {
         super(context, cursor);
         mContext = context;
         mSecure = new Secure(mContext);
+        mHiddenText = mContext.getResources().getString(R.string.hidden_text);
     }
 
     @Override
@@ -115,12 +122,18 @@ public class SecurityMasterAdapter extends CursorRecyclerViewAdapter<SecurityMas
             dialogBuilder.title("Secret");
             mPasswordDialog = dialogBuilder.build();
             mPasswordDialog.setCanceledOnTouchOutside(true);
-
+            mContentView = mPasswordDialog.getContentView();
         }
 
         if(mPasswordDialog.isShowing()) mPasswordDialog.hide();
-        mPasswordDialog.setContent(decryptedSecret);
-
+        mPasswordDialog.setContent(mHiddenText);
+        mContentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentText = mContentView.getText().toString();
+                mContentView.setText(currentText.equalsIgnoreCase(mHiddenText) ? decryptedSecret : mHiddenText);
+            }
+        });
         ((Activity) mContext).runOnUiThread(new Runnable() {
             @Override
             public void run() {

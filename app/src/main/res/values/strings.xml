@@ -33,5 +33,6 @@
     <string name="hint_new_master_key">Enter you new master key</string>
     <string name="title_reenter_master_key">Confirm Master Key</string>
     <string name="hint_reenter_master_key">Confirm your new master key</string>
+    <string name="hidden_text">*****</string>
 
 </resources>

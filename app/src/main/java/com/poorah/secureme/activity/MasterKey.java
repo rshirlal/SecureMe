@@ -72,23 +72,27 @@ public class MasterKey extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-
-        if(mCallType == VERIFY_MASTERKEY){
-            if(verifyMasterKey()){
-                finishAsSuccess();
-            }else{
-                finishAsFail();
+        if(v.getId() == mOk.getId()){
+            if(mCallType == VERIFY_MASTERKEY){
+                if(verifyMasterKey()){
+                    finishAsSuccess();
+                }else{
+                    finishAsFail();
+                }
+            }else if(mCallType == SET_MASTERKEY){
+                if(matchKeysAndSave()){
+                    finishAsSuccess();
+                }
+            }else if(mCallType == RESET_MASTERKEY){
+                if(verifyMasterKey()){
+                    // The master key match
+                    if(matchKeysAndSave()) finishAsSuccess();
+                }
             }
-        }else if(mCallType == SET_MASTERKEY){
-            if(matchKeysAndSave()){
-                finishAsSuccess();
-            }
-        }else if(mCallType == RESET_MASTERKEY){
-            if(verifyMasterKey()){
-                // The master key match
-                if(matchKeysAndSave()) finishAsSuccess();
-            }
+        }else if(v.getId() == mCancel.getId()){
+            finishAsFail();
         }
+
     }
 
     private boolean matchKeysAndSave(){
