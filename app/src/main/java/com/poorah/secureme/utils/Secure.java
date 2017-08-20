@@ -1,6 +1,5 @@
 package com.poorah.secureme.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Base64;
 import android.util.Log;
@@ -8,7 +7,6 @@ import android.util.Log;
 import com.poorah.secureme.data.Preferences;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

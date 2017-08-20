@@ -1,6 +1,5 @@
 package com.poorah.secureme.dialogs;
 
-import android.app.Activity;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;

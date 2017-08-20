@@ -4,11 +4,8 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,7 +20,6 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.poorah.secureme.R;
 import com.poorah.secureme.activity.MainActivity;
 import com.poorah.secureme.data.SecureMeContract;
-import com.poorah.secureme.dialogs.SecretMaintenance;
 import com.poorah.secureme.utils.Secure;
 
 /**

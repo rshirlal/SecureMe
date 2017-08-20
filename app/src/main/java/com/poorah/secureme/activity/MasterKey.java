@@ -1,8 +1,8 @@
 package com.poorah.secureme.activity;
 
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +12,6 @@ import android.widget.LinearLayout;
 import com.poorah.secureme.R;
 import com.poorah.secureme.data.Preferences;
 import com.poorah.secureme.utils.Secure;
-
-import org.w3c.dom.Text;
 
 public class MasterKey extends AppCompatActivity implements View.OnClickListener{
 
